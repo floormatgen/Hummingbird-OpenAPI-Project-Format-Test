@@ -47,10 +47,16 @@ let package = Package(
             ]
         ),
         .testTarget(
+            name: "ImplTests",
+            dependencies: [
+                .target(name: "Server"),
+            ]
+        ),
+        .testTarget(
             name: "ServerTests",
             dependencies: [
                 .target(name: "Server"),
-                .product(name: "HummingbirdTesting", package: "hummingbird")
+                .product(name: "HummingbirdTesting", package: "hummingbird"),
             ]
         ),
     ]

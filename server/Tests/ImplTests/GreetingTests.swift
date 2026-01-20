@@ -2,8 +2,6 @@ import Testing
 @testable import Server
 
 import OpenAPIRuntime
-import Hummingbird
-import HummingbirdTesting
 
 @Suite
 struct GreetingTests {
