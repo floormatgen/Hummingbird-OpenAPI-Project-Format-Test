@@ -24,7 +24,59 @@ paths:
         "200":
           description: A success response with a greeting
           content: 
-            text/plain; charset=utf-8:
+            text/plain:
               schema:
                 type: string
-              
+  /reverse:
+    post:
+      summary: Reverses a given string
+      requestBody:
+        description: Contains the string to reverse
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReverseInput'
+      responses:
+        "200":
+          description: A success response with the reversed string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReverseOutput'
+        "400":
+          description: An error occurred
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicError'
+
+components:
+  schemas:
+    ReverseInput:
+      type: object
+      required:
+        - 'original'
+      properties:
+        original:
+          type: string
+    ReverseOutput:
+      type: object
+      required:
+        - 'original'
+        - 'reversed'
+      properties:
+        original:
+          type: string
+        reversed:
+          type: string
+    BasicError:
+      type: object
+      required:
+        - operationID
+        - reason
+      properties:
+        operationID:
+          type: string
+        reason:
+          type: string
