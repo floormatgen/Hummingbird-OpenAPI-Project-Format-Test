@@ -6,7 +6,7 @@ HOSTING_BASE_PATH="/Hummingbird-OpenAPI-Project-Format-Test/server"
 swift package \
     --disable-sandbox \
     --allow-writing-to-directory ${DOCS_DIRECTORY} \
-    generate-documentation --product Server \
+    generate-documentation --target Server \
     --transform-for-static-hosting \
     --output-path ${DOCS_DIRECTORY} \
     --hosting-base-path ${HOSTING_BASE_PATH}
