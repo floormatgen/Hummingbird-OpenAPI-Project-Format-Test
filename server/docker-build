@@ -5,4 +5,5 @@
 
 docker build \
     --build-context spec=../spec \
+    --tag openapi-hummingbird-experiment:v1 \
     .

@@ -36,6 +36,20 @@ WORKDIR /staging
 # Copy main executable to staging area
 RUN cp $(swift build --package-path /build -c release --show-bin-path)/${PRODUCT_NAME} ./
 
+FROM debian:latest
+
+RUN apt-get -q update \
+    && apt-get -q dist-upgrade
+
+# Switch to the new home directory
+WORKDIR /app
+
+# Copy built executable and any staged resources from builder
+COPY --from=build /staging /app
+
+RUN pwd
+RUN ls -la
+
 # TODO: Move this to a new container (Make it multistage)
 EXPOSE 8080
 # ENTRYPOINT ./${PRODUCT_NAME} "$0" "$@"
