@@ -1,9 +1,10 @@
 #! /bin/sh
 
-DOCS_DIRECTORY="./docs"
-HOSTING_BASE_PATH="/"
+DOCS_DIRECTORY="../docs/server"
+HOSTING_BASE_PATH="/server"
 
 swift package \
+    --disable-sandbox \
     --allow-writing-to-directory ${DOCS_DIRECTORY} \
     generate-documentation --product Server \
     --transform-for-static-hosting \
