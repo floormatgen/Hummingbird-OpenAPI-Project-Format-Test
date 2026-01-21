@@ -24,11 +24,15 @@ func buildApplication() async throws -> AppType {
     var logger = Logger(label: "server")
     logger.logLevel = .debug
 
+    let config = ApplicationConfiguration(address: .hostname("0.0.0.0"))
+
     // Create the application and run as you would normally.
-    return AppType(router: router, logger: logger)
+    return AppType(router: router, configuration: config, logger: logger)
 }
 
 func main() async throws {
     let app = try await buildApplication()
     try await app.runService()
 }
+
+try await main()

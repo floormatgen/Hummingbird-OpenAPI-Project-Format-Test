@@ -1,0 +1,8 @@
+#! /bin/sh
+
+# Use this instead of invoking docker build directly
+# This allows the real openapi spec file to be accessed during the build
+
+docker build \
+    --build-context spec=../spec \
+    .
