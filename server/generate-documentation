@@ -1,0 +1,11 @@
+#! /bin/sh
+
+DOCS_DIRECTORY="./docs"
+HOSTING_BASE_PATH="/"
+
+swift package \
+    --allow-writing-to-directory ${DOCS_DIRECTORY} \
+    generate-documentation --product Server \
+    --transform-for-static-hosting \
+    --hosting-base-path ${HOSTING_BASE_PATH} \
+    --output-path ${DOCS_DIRECTORY}
