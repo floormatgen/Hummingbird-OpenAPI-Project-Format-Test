@@ -1,12 +1,12 @@
 #! /bin/sh
 
 DOCS_DIRECTORY="../docs/server"
-HOSTING_BASE_PATH="/server"
+HOSTING_BASE_PATH="/Hummingbird-OpenAPI-Project-Format-Test/docs/server"
 
 swift package \
     --disable-sandbox \
     --allow-writing-to-directory ${DOCS_DIRECTORY} \
     generate-documentation --product Server \
     --transform-for-static-hosting \
-    --hosting-base-path ${HOSTING_BASE_PATH} \
-    --output-path ${DOCS_DIRECTORY}
+    --output-path ${DOCS_DIRECTORY} \
+    --hosting-base-path ${HOSTING_BASE_PATH}
